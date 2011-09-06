@@ -28,13 +28,10 @@ AVRDUDE_MAXSIZE := $(shell grep $(ARDUINO_VERSION).upload.max_size boards.txt | 
 AVRDUDE_FLAGS = -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMER) -b $(AVRDUDE_SPEED)
 AVRDUDE_WRITE_FLASH = -U flash:w:$(TARGET).hex
 
-CFLAGS := -g -Os -Wall -mcall-prologues -mmcu=$(MCU)
+CFLAGS := -g -Os -Wall -mcall-prologues -mmcu=$(MCU) -DF_CPU=$(F_CPU)
 
 # deafult is to compile to the hex file
 ALL : $(TARGET).hex
-
-config.h:
-	@echo '#define F_CPU $(F_CPU)' > config.h
 	
 %.obj : %.o
 	$(CC) $(CFLAGS) $< -o $@
