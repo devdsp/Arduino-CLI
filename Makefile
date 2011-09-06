@@ -40,7 +40,7 @@ ALL : $(TARGET).hex
 	$(OBJ2HEX) -R .eeprom -O ihex $< $@
 
 clean :
-	rm -f *.hex *.obj *.o config.h
+	rm -f *.hex *.obj *.o
 
 program: $(TARGET).hex
 	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH) 
