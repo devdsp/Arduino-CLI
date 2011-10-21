@@ -75,10 +75,7 @@ make sure that rebuilding and programming really is working.
 If you want to start a new project with a new name you will need to change the
 TARGET variable in the makefile to match the name of the new .c file you're
 working with. Do not include the extension or the Makefile will get really
-confused. The Makefile automatically creates a config.h file which includes
-the '#define F_CPU' macro based on the clock speed specified in the boards.txt
-file, you'll want to make sure you '#include "config.h"' at the top of your
-$(TARGET).c or some of the avr-libc functions and macros wont work.
+confused. 
 
 TODO
 ====
